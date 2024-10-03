@@ -32,11 +32,14 @@ android {
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+
+    // Thêm dependency cho FontAwesome
+    implementation("com.mikepenz:fontawesome-typeface:4.7.0.1") // Kiểm tra phiên bản mới nhất
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

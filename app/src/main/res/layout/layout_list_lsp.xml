@@ -7,12 +7,14 @@
     android:layout_marginStart="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginEnd="10dp"
+    android:orientation="horizontal"
     tools:ignore="Orientation">
 
+    <!-- Text Layout Section -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -21,6 +23,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="TextView" />
 
         <TextView
@@ -28,6 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="lsp_Mota" />
 
         <TextView
@@ -35,34 +39,32 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="ads" />
     </LinearLayout>
 
+    <!-- Button Layout Section -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:orientation="horizontal">
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center">
 
-        <ImageButton
-            android:id="@+id/imageButton5"
-            style="@style/icon_r"
+
+        <Button
+            android:id="@+id/btnDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#FFF5F5"
-            app:srcCompat="@drawable/rac"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:text="D" />
 
-        <ImageButton
-            android:id="@+id/imageButton6"
-            style="@style/icon_r"
+        <Button
+            android:id="@+id/btnUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#FFFFFF"
-            app:srcCompat="@drawable/pen"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:text="U" />
     </LinearLayout>
 
 </LinearLayout>
