@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.loaiSanPham.addLoaiSanPhamActivity">
-
+    tools:context=".view.activity.loaiSanPham.updateLoaiSanPhamActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -46,7 +45,7 @@
                     style="@style/DanhMuc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/addLoaiSanPham" />
+                    android:text="@string/updateLoaiSanPham" />
             </LinearLayout>
 
             <LinearLayout
@@ -137,14 +136,15 @@
                         android:orientation="vertical">
 
                         <Button
-                            android:id="@+id/btnUpdate"
+                            android:id="@+id/btnUpdatelsp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="Add" />
+                            android:text="Update" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

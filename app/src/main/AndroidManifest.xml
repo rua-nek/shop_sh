@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Shop_shoes"
         tools:targetApi="31">
         <activity
+            android:name=".view.activity.loaiSanPham.updateLoaiSanPhamActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activity.loaiSanPham.addLoaiSanPhamActivity"
             android:exported="false" />
         <activity

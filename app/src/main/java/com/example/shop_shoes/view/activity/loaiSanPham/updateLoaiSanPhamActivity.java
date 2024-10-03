@@ -13,43 +13,56 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.shop_shoes.R;
 import com.example.shop_shoes.database.Dao.loaiSanPhamDao;
+import com.example.shop_shoes.model.loaiSanPham;
 
-public class addLoaiSanPhamActivity extends AppCompatActivity {
-    Button btnAdd, btnCancel;
-    loaiSanPhamDao dao = new loaiSanPhamDao(this);
-    EditText edtlsp_ten, edtlsp_mota, edtlsp_danhcho;
+import java.util.ArrayList;
 
+public class updateLoaiSanPhamActivity extends AppCompatActivity {
+    EditText edtlsp_ten, edtlsp_mota;
+    Button btnUpdate, btnCancel;
+    loaiSanPhamDao dao;
+    int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_add_loai_san_pham);
+        setContentView(R.layout.activity_update_loai_san_pham);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        btnAdd = findViewById(R.id.btnUpdate);
-        btnCancel = findViewById(R.id.btnCancel);
+
+        dao = new loaiSanPhamDao(this);
         edtlsp_ten = findViewById(R.id.edtlsp_ten);
         edtlsp_mota = findViewById(R.id.edtlsp_mota);
-        btnAdd.setOnClickListener(v -> {
-            addLoaiSanPham();
+        btnUpdate = findViewById(R.id.btnUpdatelsp);
+        btnCancel = findViewById(R.id.btnCancel);
+        id = getIntent().getIntExtra("id", 0);
+
+        // Gọi phương thức để lấy loại sản phẩm dựa trên ID
+        loaiSanPhamDao dao = new loaiSanPhamDao(this);
+        loaiSanPham loaiSanPham = dao.getLoaiSanPhamById(id);
+
+        if (loaiSanPham != null) {
+            // Thiết lập văn bản cho EditText
+            edtlsp_ten.setText(loaiSanPham.getLsp_ten());
+            edtlsp_mota.setText(loaiSanPham.getLsp_mota());
+        }
+        btnCancel.setOnClickListener(v -> {
+            finish();
+        });
+        btnUpdate.setOnClickListener(v -> {
+            updateLoaiSanPham();
             setResult(RESULT_OK);
             finish();
         });
-        btnCancel.setOnClickListener(v -> {
-            cancel();
-        });
     }
-
-    public void addLoaiSanPham() {
+    public void updateLoaiSanPham() {
         String ten = edtlsp_ten.getText().toString();
         String mota = edtlsp_mota.getText().toString();
-        dao.addLoaiSanPham(ten, mota);
+        dao.updateLoaiSanPham(id, ten, mota);
     }
 
-    public void cancel() {
-        finish();
-    }
+
 }

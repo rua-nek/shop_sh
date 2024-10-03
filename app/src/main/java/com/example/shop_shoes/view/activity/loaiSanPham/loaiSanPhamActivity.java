@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 public class loaiSanPhamActivity extends AppCompatActivity implements loaiSanPhamAdapter.OnButtonClickListener {
     private static final int REQUEST_CODE_ADD_LOAI_SAN_PHAM = 1;
+    private static final int REQUEST_CODE_UPDATE_LOAI_SAN_PHAM = 2;
     loaiSanPhamAdapter adapter;
     loaiSanPhamDao dao = new loaiSanPhamDao(this);
     Button btnAdd;
@@ -38,7 +39,7 @@ public class loaiSanPhamActivity extends AppCompatActivity implements loaiSanPha
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        btnAdd = findViewById(R.id.btnAdd);
+        btnAdd = findViewById(R.id.btnUpdate);
         lvLsp = findViewById(R.id.lvLoaiSanPham);
         loadData(); // Tải dữ liệu từ cơ sở dữ liệu
 
@@ -57,21 +58,36 @@ public class loaiSanPhamActivity extends AppCompatActivity implements loaiSanPha
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_UPDATE_LOAI_SAN_PHAM && resultCode == Activity.RESULT_OK) {
+            loadData(); // Tải lại dữ liệu sau khi có thay đổi
+        }
         if (requestCode == REQUEST_CODE_ADD_LOAI_SAN_PHAM && resultCode == Activity.RESULT_OK) {
-            loadData(); // Tải lại dữ liệu sau khi thêm mới
+            loadData(); // Tải lại dữ liệu sau khi có thay đổi
         }
     }
 
+
     @Override
     public void onDeleteClick(int id) {
-        dao.deleteLoaiSanPham(id);
-        loadData(); // Tải lại dữ liệu sau khi xóa
+        new AlertDialog.Builder(this)
+                .setTitle("Xác nhận xóa")
+                .setMessage("Bạn có chắc chắn muốn xóa loại sản phẩm này không?")
+                .setPositiveButton("Có", (dialog, which) -> {
+                    dao.deleteLoaiSanPham(id);
+                    loadData(); // Tải lại dữ liệu sau khi xóa
+                })
+                .setNegativeButton("Không", (dialog, which) -> {
+                    dialog.dismiss(); // Đóng hộp thoại nếu người dùng nhấn "Không"
+                })
+                .show();
     }
+
 
     @Override
     public void onUpdateClick(int id) {
-        // Xử lý ID nhận được từ adapter cho nút Update
-        Toast.makeText(this, "Cập nhật ID: " + id, Toast.LENGTH_SHORT).show();
-        // Bạn có thể mở một Activity để thực hiện cập nhật
+        Intent intent = new Intent(this, updateLoaiSanPhamActivity.class);
+        intent.putExtra("id", id);
+        startActivityForResult(intent, REQUEST_CODE_UPDATE_LOAI_SAN_PHAM); // Đảm bảo sử dụng startActivityForResult
     }
+
 }

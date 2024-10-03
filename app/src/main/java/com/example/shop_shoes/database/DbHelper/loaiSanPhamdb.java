@@ -5,13 +5,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class loaiSanPhamdb extends SQLiteOpenHelper {
     public loaiSanPhamdb(Context context) {
-        super(context, "shop_shoes.db", null, 1);
+        super(context, "dmshop_shoes.db", null, 1);
 
     }
 
     @Override
     public void onCreate(android.database.sqlite.SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE loaiSanPham(lsp_ma INTEGER PRIMARY KEY AUTOINCREMENT, lsp_ten TEXT,lsp_mota TEXT, lsp_danhcho TEXT)");
+        db.execSQL("CREATE TABLE loaiSanPham(lsp_ma INTEGER PRIMARY KEY AUTOINCREMENT, lsp_ten TEXT,lsp_mota TEXT)");
     }
 
     @Override

@@ -2,5 +2,6 @@
     <string name="app_name">shop_shoes</string>
     <string name="loaiSanPham">Loại sản phẩm</string>
     <string name="addLoaiSanPham">Thêm mới loại sản phẩm</string>
+    <string name="updateLoaiSanPham">Chỉnh sửa loại sản phẩm</string>
     <string name="Ananas">Ananas</string>
 </resources>

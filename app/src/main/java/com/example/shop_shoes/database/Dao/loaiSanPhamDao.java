@@ -13,11 +13,28 @@ public class loaiSanPhamDao {
     public loaiSanPhamDao(Context context) {
         loaiSanPhamdb = new loaiSanPhamdb(context);
     }
+    public loaiSanPham getLoaiSanPhamById(int lsp_ma) {
+        loaiSanPham loaiSanPham = null;
+        String sql = "SELECT * FROM loaiSanPham WHERE lsp_ma = ?";
+        android.database.Cursor cursor = loaiSanPhamdb.getReadableDatabase().rawQuery(sql, new String[]{String.valueOf(lsp_ma)});
+        try {
+            if (cursor.moveToFirst()) {
+                loaiSanPham = new loaiSanPham();
+                loaiSanPham.setLsp_ma(cursor.getInt(0));
+                loaiSanPham.setLsp_ten(cursor.getString(1));
+                loaiSanPham.setLsp_mota(cursor.getString(2));
+            }
+        } finally {
+            cursor.close();
+        }
+        return loaiSanPham;
+    }
 
-    public void addLoaiSanPham(String lsp_ten, String lsp_mota, String lsp_danhcho) {
+
+    public void addLoaiSanPham(String lsp_ten, String lsp_mota) {
         loaiSanPhamdb.getWritableDatabase();
-        String sql = "INSERT INTO loaiSanPham (lsp_ten, lsp_mota, lsp_danhcho) VALUES (?, ?, ?)";
-        Object[] args = {lsp_ten, lsp_mota, lsp_danhcho};
+        String sql = "INSERT INTO loaiSanPham (lsp_ten, lsp_mota) VALUES (?, ?)";
+        Object[] args = {lsp_ten, lsp_mota};
         loaiSanPhamdb.getWritableDatabase().execSQL(sql, args);
     }
     public void deleteLoaiSanPham(int lsp_ma) {
@@ -26,10 +43,10 @@ public class loaiSanPhamDao {
         Object[] args = {lsp_ma};
         loaiSanPhamdb.getWritableDatabase().execSQL(sql, args);
     }
-    public void updateLoaiSanPham(int lsp_ma, String lsp_ten, String lsp_mota, String lsp_danhcho) {
+    public void updateLoaiSanPham(int lsp_ma, String lsp_ten, String lsp_mota) {
         loaiSanPhamdb.getWritableDatabase();
-        String sql = "UPDATE loaiSanPham SET lsp_ten = ?, lsp_mota = ?, lsp_danhcho = ? WHERE lsp_ma = ?";
-        Object[] args = {lsp_ten, lsp_mota, lsp_danhcho, lsp_ma};
+        String sql = "UPDATE loaiSanPham SET lsp_ten = ?, lsp_mota = ? WHERE lsp_ma = ?";
+        Object[] args = {lsp_ten, lsp_mota, lsp_ma};
         loaiSanPhamdb.getWritableDatabase().execSQL(sql, args);
     }
 
@@ -43,7 +60,6 @@ public class loaiSanPhamDao {
                 loaiSanPham.setLsp_ma(cursor.getInt(0));
                 loaiSanPham.setLsp_ten(cursor.getString(1));
                 loaiSanPham.setLsp_mota(cursor.getString(2));
-                loaiSanPham.setLsp_danhcho(cursor.getString(3));
                 data.add(loaiSanPham);
             }
         } finally {
