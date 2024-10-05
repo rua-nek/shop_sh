@@ -39,7 +39,7 @@ public class loaiSanPhamActivity extends AppCompatActivity implements loaiSanPha
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        btnAdd = findViewById(R.id.btnUpdate);
+        btnAdd = findViewById(R.id.btnAddLsp);
         lvLsp = findViewById(R.id.lvLoaiSanPham);
         loadData(); // Tải dữ liệu từ cơ sở dữ liệu
 
@@ -68,7 +68,7 @@ public class loaiSanPhamActivity extends AppCompatActivity implements loaiSanPha
 
 
     @Override
-    public void onDeleteClick(int id) {
+    public void onDeleteClickLsp(int id) {
         new AlertDialog.Builder(this)
                 .setTitle("Xác nhận xóa")
                 .setMessage("Bạn có chắc chắn muốn xóa loại sản phẩm này không?")
@@ -84,7 +84,7 @@ public class loaiSanPhamActivity extends AppCompatActivity implements loaiSanPha
 
 
     @Override
-    public void onUpdateClick(int id) {
+    public void onUpdateClickLsp(int id) {
         Intent intent = new Intent(this, updateLoaiSanPhamActivity.class);
         intent.putExtra("id", id);
         startActivityForResult(intent, REQUEST_CODE_UPDATE_LOAI_SAN_PHAM); // Đảm bảo sử dụng startActivityForResult

@@ -19,7 +19,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/txtlsp_Ten"
+            android:id="@+id/txtNsx_Ten"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -27,20 +27,13 @@
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/txtlsp_Mota"
+            android:id="@+id/txtNsx_mota"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:text="lsp_Mota" />
 
-        <TextView
-            android:id="@+id/txtlsp_Danhcho"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="ads" />
     </LinearLayout>
 
     <!-- Button Layout Section -->
@@ -53,14 +46,14 @@
 
 
         <Button
-            android:id="@+id/btnDeleteLsp"
+            android:id="@+id/btnDeleteNsx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="D" />
 
         <Button
-            android:id="@+id/btnUpdateLsp"
+            android:id="@+id/btnUpdateNsx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

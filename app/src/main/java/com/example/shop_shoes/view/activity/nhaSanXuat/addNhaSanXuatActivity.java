@@ -1,6 +1,5 @@
-package com.example.shop_shoes.view.activity.loaiSanPham;
+package com.example.shop_shoes.view.activity.nhaSanXuat;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,44 +11,41 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.shop_shoes.R;
-import com.example.shop_shoes.database.Dao.loaiSanPhamDao;
+import com.example.shop_shoes.database.Dao.nhaSanXuatDao;
 
-public class addLoaiSanPhamActivity extends AppCompatActivity {
+public class addNhaSanXuatActivity extends AppCompatActivity {
     Button btnAdd, btnCancel;
-    loaiSanPhamDao dao = new loaiSanPhamDao(this);
-    EditText edtlsp_ten, edtlsp_mota;
-
+    nhaSanXuatDao nhaSanXuatDao;
+    EditText edtNsx_ten, edtNsx_mota;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_add_loai_san_pham);
+        setContentView(R.layout.activity_add_nha_san_xuat);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        btnAdd = findViewById(R.id.btnAddLsp);
-        btnCancel = findViewById(R.id.btnCancel);
-        edtlsp_ten = findViewById(R.id.edtlsp_ten);
-        edtlsp_mota = findViewById(R.id.edtlsp_mota);
+        nhaSanXuatDao = new nhaSanXuatDao(this);
+        edtNsx_ten = findViewById(R.id.edtNsx_ten);
+        edtNsx_mota = findViewById(R.id.edtNsx_mota);
+        btnAdd = findViewById(R.id.btnAddNsx);
         btnAdd.setOnClickListener(v -> {
-            addLoaiSanPham();
+            addNhaSanXuat();
             setResult(RESULT_OK);
             finish();
         });
+        btnCancel = findViewById(R.id.btnCancel);
         btnCancel.setOnClickListener(v -> {
-            cancel();
+            finish();
         });
     }
 
-    public void addLoaiSanPham() {
-        String ten = edtlsp_ten.getText().toString();
-        String mota = edtlsp_mota.getText().toString();
-        dao.addLoaiSanPham(ten, mota);
-    }
+    private void addNhaSanXuat() {
+        String ten = edtNsx_ten.getText().toString();
+        String mota = edtNsx_mota.getText().toString();
+        nhaSanXuatDao.addNhaSanXuat(ten, mota);
 
-    public void cancel() {
-        finish();
     }
 }

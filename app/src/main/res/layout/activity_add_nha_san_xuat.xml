@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.loaiSanPham.addLoaiSanPhamActivity">
-
+    tools:context=".view.activity.nhaSanXuat.addNhaSanXuatActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -46,7 +45,7 @@
                     style="@style/DanhMuc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/addLoaiSanPham" />
+                    android:text="@string/addNhaSanXuat" />
             </LinearLayout>
 
             <LinearLayout
@@ -66,14 +65,14 @@
                         android:id="@+id/textView3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tên loại sản phẩm" />
+                        android:text="@string/tenNhaSanXuat" />
 
                     <EditText
-                        android:id="@+id/edtlsp_ten"
+                        android:id="@+id/edtNsx_ten"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="Tên loại sản phẩm"
+                        android:hint="@string/tenNhaSanXuat"
                         android:inputType="text"
                         android:minHeight="48dp" />
                 </LinearLayout>
@@ -87,14 +86,14 @@
                         android:id="@+id/textView4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Mô tả" />
+                        android:text="@string/motaNhaSanXuat" />
 
                     <EditText
-                        android:id="@+id/edtlsp_mota"
+                        android:id="@+id/edtNsx_mota"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="Mô tả"
+                        android:hint="@string/motaNhaSanXuat"
                         android:inputType="text"
                         android:minHeight="48dp" />
                 </LinearLayout>
@@ -137,7 +136,7 @@
                         android:orientation="vertical">
 
                         <Button
-                            android:id="@+id/btnAddLsp"
+                            android:id="@+id/btnAddNsx"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"

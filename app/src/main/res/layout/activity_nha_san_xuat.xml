@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.loaiSanPham.loaiSanPhamActivity">
-
+    tools:context=".view.activity.nhaSanXuat.nhaSanXuatActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -51,10 +50,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:text="@string/loaiSanPham" />
+                        android:text="@string/nhaSanXuat" />
 
                     <Button
-                        android:id="@+id/btnAddLsp"
+                        android:id="@+id/btnAddNsx"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -73,7 +72,7 @@
                 android:orientation="vertical">
 
                 <ListView
-                    android:id="@+id/lvLoaiSanPham"
+                    android:id="@+id/lvnhaSanXuat"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </LinearLayout>
@@ -84,4 +83,5 @@
                 android:orientation="vertical"></LinearLayout>
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

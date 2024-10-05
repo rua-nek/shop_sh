@@ -13,6 +13,15 @@
         android:theme="@style/Theme.Shop_shoes"
         tools:targetApi="31">
         <activity
+            android:name=".view.activity.nhaSanXuat.updateNhaSanXuatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.nhaSanXuat.addNhaSanXuatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.nhaSanXuat.nhaSanXuatActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activity.loaiSanPham.updateLoaiSanPhamActivity"
             android:exported="false" />
         <activity

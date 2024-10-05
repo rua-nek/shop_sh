@@ -3,5 +3,13 @@
     <string name="loaiSanPham">Loại sản phẩm</string>
     <string name="addLoaiSanPham">Thêm mới loại sản phẩm</string>
     <string name="updateLoaiSanPham">Chỉnh sửa loại sản phẩm</string>
+
+
+    <string name="nhaSanXuat">Nhà sản xuất</string>
+    <string name="addNhaSanXuat">Thêm mới nhà sản xuất</string>
+    <string name="updateNhaSanXuat">Chỉnh sửa nhà san xuất</string>
+    <string name="tenNhaSanXuat"> Tên Nhà Sản Xuất</string>
+    <string name="motaNhaSanXuat">Mô tả Nhà Sản Xuất</string>
+
     <string name="Ananas">Ananas</string>
 </resources>

@@ -3,33 +3,23 @@ package com.example.shop_shoes.view.adapter;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.shop_shoes.R;
-import com.example.shop_shoes.model.loaiSanPham;
+import com.example.shop_shoes.model.nhaSanXuat;
 
 import java.util.ArrayList;
 
-public class loaiSanPhamAdapter extends ArrayAdapter<loaiSanPham> {
+public class nhaSanXuatAdapter extends ArrayAdapter<nhaSanXuat> {
     private Context context;
     private int resource;
-    private ArrayList<loaiSanPham> data;
+    private ArrayList<nhaSanXuat> data;
     private OnButtonClickListener buttonClickListener;
 
-    // Tạo interface
-    public interface OnButtonClickListener {
-        void onDeleteClickLsp(int id);
-        void onUpdateClickLsp(int id);
-    }
-
-    public loaiSanPhamAdapter(Context context, int resource, ArrayList<loaiSanPham> data, OnButtonClickListener buttonClickListener) {
+    public nhaSanXuatAdapter(Context context, int resource, ArrayList<nhaSanXuat> data, OnButtonClickListener buttonClickListener) {
         super(context, resource, data);
         this.context = context;
         this.resource = resource;
@@ -43,29 +33,35 @@ public class loaiSanPhamAdapter extends ArrayAdapter<loaiSanPham> {
             convertView = LayoutInflater.from(context).inflate(resource, parent, false);
         }
 
-        TextView txtTen = convertView.findViewById(R.id.txtlsp_Ten);
-        TextView txtMoTa = convertView.findViewById(R.id.txtlsp_Mota);
-        Button btnDelete = convertView.findViewById(R.id.btnDeleteLsp);
-        Button btnUpdate = convertView.findViewById(R.id.btnUpdateLsp); // Giả sử bạn đã thêm nút Update vào layout
+        // Cập nhật nội dung của các phần tử trong danh sách
+        TextView txtTen = convertView.findViewById(R.id.txtNsx_Ten);
+        TextView txtMota = convertView.findViewById(R.id.txtNsx_mota);
+        Button btnDelete = convertView.findViewById(R.id.btnDeleteNsx);
+        Button btnUpdate = convertView.findViewById(R.id.btnUpdateNsx);
 
-        loaiSanPham loaiSanPham = data.get(position);
-        txtTen.setText(loaiSanPham.getLsp_ten());
-        txtMoTa.setText(loaiSanPham.getLsp_mota());
+        nhaSanXuat nhaSanXuat = data.get(position);
+        txtTen.setText(nhaSanXuat.getNsx_ten());
+        txtMota.setText(nhaSanXuat.getNsx_mota());
 
         // Xử lý sự kiện click nút Delete
         btnDelete.setOnClickListener(v -> {
             if (buttonClickListener != null) {
-                buttonClickListener.onDeleteClickLsp(loaiSanPham.getLsp_ma());
+                buttonClickListener.onDeleteClickNsx(nhaSanXuat.getNsx_ma());
             }
         });
 
         // Xử lý sự kiện click nút Update
         btnUpdate.setOnClickListener(v -> {
             if (buttonClickListener != null) {
-                buttonClickListener.onUpdateClickLsp(loaiSanPham.getLsp_ma());
+                buttonClickListener.onUpdateClickNsx(nhaSanXuat.getNsx_ma());
             }
         });
 
         return convertView;
+    }
+
+    public interface OnButtonClickListener {
+        void onDeleteClickNsx(int id);
+        void onUpdateClickNsx(int id);
     }
 }

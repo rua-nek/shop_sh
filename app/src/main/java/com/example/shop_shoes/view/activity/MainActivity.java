@@ -12,9 +12,10 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.shop_shoes.R;
 import com.example.shop_shoes.view.activity.loaiSanPham.loaiSanPhamActivity;
+import com.example.shop_shoes.view.activity.nhaSanXuat.nhaSanXuatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnLsp;
+    Button btnLsp, btnNsx;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +27,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         btnLsp = findViewById(R.id.btnLsp);
+        btnNsx = findViewById(R.id.btnNsx);
         btnLsp.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, loaiSanPhamActivity.class);
+            startActivity(intent);
+        });
+        btnNsx.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, nhaSanXuatActivity.class);
             startActivity(intent);
         });
 

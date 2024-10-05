@@ -2,16 +2,16 @@ package com.example.shop_shoes.database.Dao;
 
 import android.content.Context;
 
-import com.example.shop_shoes.database.DbHelper.loaiSanPhamdb;
+import com.example.shop_shoes.database.DbHelper.dbHelper;
 import com.example.shop_shoes.model.loaiSanPham;
 
 import java.util.ArrayList;
 
 public class loaiSanPhamDao {
-    private loaiSanPhamdb loaiSanPhamdb;
+    private dbHelper loaiSanPhamdb;
 
     public loaiSanPhamDao(Context context) {
-        loaiSanPhamdb = new loaiSanPhamdb(context);
+        loaiSanPhamdb = new dbHelper(context);
     }
     public loaiSanPham getLoaiSanPhamById(int lsp_ma) {
         loaiSanPham loaiSanPham = null;
